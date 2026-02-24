@@ -753,6 +753,15 @@
     <button class="absolute top-6 right-6 text-creme-200 hover:text-terre-400 transition-colors duration-300 z-10" aria-label="Fermer" onclick="closeLightbox()">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
+    <!-- Nav buttons -->
+    <button id="lightboxPrev" class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-creme-200 hover:text-terre-400 transition-colors duration-300 z-10" aria-label="Précédent" onclick="event.stopPropagation(); lightboxNav(-1)">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button id="lightboxNext" class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-creme-200 hover:text-terre-400 transition-colors duration-300 z-10" aria-label="Suivant" onclick="event.stopPropagation(); lightboxNav(1)">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <!-- Counter -->
+    <span id="lightboxCounter" class="absolute bottom-6 left-1/2 -translate-x-1/2 body-text text-creme-300/60 text-sm tracking-wider z-10" onclick="event.stopPropagation()"></span>
     <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-sm" onclick="event.stopPropagation()">
   </div>
 
@@ -897,6 +906,20 @@
             <p class="body-text text-nuit-600 text-sm mt-1">69640 Ville-sur-Jarnioux, France</p>
           </div>
         </div>
+      </div>
+
+      <!-- Map -->
+      <div class="mt-16 md:mt-24 reveal">
+        <div class="rounded-sm overflow-hidden shadow-deep" style="aspect-ratio: 21/9;">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=4.6050%2C45.9230%2C4.6350%2C45.9400&layer=mapnik&marker=45.9315%2C4.6200"
+            width="100%" height="100%" style="border:0; display:block;" loading="lazy"
+            title="Carte — Ville-sur-Jarnioux, Beaujolais"
+          ></iframe>
+        </div>
+        <p class="body-text text-nuit-500 text-xs mt-3 text-right">
+          <a href="https://www.openstreetmap.org/?mlat=45.9315&mlon=4.6200#map=14/45.9315/4.6200" target="_blank" rel="noopener" class="hover:text-terre-500 transition-colors duration-300">Voir sur OpenStreetMap &rarr;</a>
+        </p>
       </div>
     </div>
   </section>
@@ -1045,16 +1068,43 @@
       document.body.style.overflow = '';
     }
 
-    // ---- Lightbox ----
+    // ---- Lightbox with navigation ----
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    let lightboxItems = [];
+    let lightboxIndex = 0;
 
     function openLightbox(el) {
+      // Build the list of sibling gallery items from the same parent grid
+      const parent = el.closest('.grid, #editionGalleryGrid');
+      if (parent) {
+        lightboxItems = Array.from(parent.querySelectorAll('.gallery-item'));
+        lightboxIndex = lightboxItems.indexOf(el);
+      } else {
+        lightboxItems = [el];
+        lightboxIndex = 0;
+      }
+      showLightboxImage();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showLightboxImage() {
+      const el = lightboxItems[lightboxIndex];
+      if (!el) return;
       const img = el.querySelector('img');
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      lightboxCounter.textContent = lightboxItems.length > 1
+        ? (lightboxIndex + 1) + ' / ' + lightboxItems.length
+        : '';
+    }
+
+    function lightboxNav(dir) {
+      if (lightboxItems.length <= 1) return;
+      lightboxIndex = (lightboxIndex + dir + lightboxItems.length) % lightboxItems.length;
+      showLightboxImage();
     }
 
     function closeLightbox() {
@@ -1063,12 +1113,12 @@
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        if (lightbox.classList.contains('active')) {
-          closeLightbox();
-        } else if (document.getElementById('editionGallery').style.display !== 'none') {
-          closeEditionGallery();
-        }
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowLeft') lightboxNav(-1);
+        else if (e.key === 'ArrowRight') lightboxNav(1);
+      } else if (e.key === 'Escape' && document.getElementById('editionGallery').style.display !== 'none') {
+        closeEditionGallery();
       }
     });
 
