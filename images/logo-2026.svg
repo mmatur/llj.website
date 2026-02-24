@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a2f54"/>
+      <stop offset="100%" stop-color="#1d3764"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e2943f"/>
+      <stop offset="100%" stop-color="#d4762c"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="190" fill="url(#bg)"/>
+  <!-- Decorative ring -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="#e2943f" stroke-width="1" opacity="0.3"/>
+  <!-- Sun arc -->
+  <path d="M 100 260 Q 200 180 300 260" fill="none" stroke="url(#accent)" stroke-width="2.5" opacity="0.6"/>
+  <!-- Hills silhouette -->
+  <path d="M 60 300 Q 130 240 200 270 Q 270 240 340 300 Z" fill="#2b5ea7" opacity="0.2"/>
+  <!-- Title -->
+  <text x="200" y="135" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="26" fill="#fdf9f2" letter-spacing="0.08em" font-weight="400">LES LONGUES</text>
+  <text x="200" y="175" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="26" fill="#fdf9f2" letter-spacing="0.08em" font-weight="400">JOURNÉES</text>
+  <!-- Divider -->
+  <line x1="160" y1="195" x2="240" y2="195" stroke="#e2943f" stroke-width="1.5" opacity="0.7"/>
+  <!-- Year -->
+  <text x="200" y="238" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="52" fill="#e2943f" font-weight="700" letter-spacing="0.05em">2026</text>
+  <!-- Subtitle -->
+  <text x="200" y="275" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="11" fill="#fdf9f2" letter-spacing="0.2em" opacity="0.7" font-weight="300">FESTIVAL DE THÉÂTRE</text>
+  <text x="200" y="295" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="11" fill="#fdf9f2" letter-spacing="0.2em" opacity="0.7" font-weight="300">EN PLEIN AIR</text>
+  <!-- Location -->
+  <text x="200" y="335" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="9" fill="#e9ae6a" letter-spacing="0.25em" opacity="0.5" font-weight="400">VILLE-SUR-JARNIOUX</text>
+  <text x="200" y="350" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="9" fill="#e9ae6a" letter-spacing="0.25em" opacity="0.5" font-weight="400">BEAUJOLAIS</text>
+</svg>

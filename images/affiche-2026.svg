@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2f54"/>
+      <stop offset="40%" stop-color="#244f94"/>
+      <stop offset="70%" stop-color="#e2943f"/>
+      <stop offset="100%" stop-color="#d4762c"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2f5a28"/>
+      <stop offset="100%" stop-color="#1a2f54"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="65%" r="25%">
+      <stop offset="0%" stop-color="#f2ce9e" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e2943f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply" result="blend"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.08"/>
+      </feComponentTransfer>
+      <feComposite in2="SourceGraphic" operator="in"/>
+      <feBlend in2="SourceGraphic" mode="overlay"/>
+    </filter>
+  </defs>
+
+  <!-- Sky gradient -->
+  <rect width="600" height="800" fill="url(#sky)"/>
+
+  <!-- Sun glow -->
+  <circle cx="300" cy="500" r="200" fill="url(#sun)"/>
+
+  <!-- Stars -->
+  <circle cx="120" cy="80" r="1.5" fill="#fdf9f2" opacity="0.6"/>
+  <circle cx="480" cy="120" r="1" fill="#fdf9f2" opacity="0.5"/>
+  <circle cx="350" cy="60" r="1.2" fill="#fdf9f2" opacity="0.4"/>
+  <circle cx="200" cy="150" r="0.8" fill="#fdf9f2" opacity="0.3"/>
+  <circle cx="450" cy="200" r="1" fill="#fdf9f2" opacity="0.5"/>
+  <circle cx="80" cy="220" r="1.3" fill="#fdf9f2" opacity="0.3"/>
+  <circle cx="530" cy="50" r="0.9" fill="#fdf9f2" opacity="0.4"/>
+  <circle cx="270" cy="110" r="1.1" fill="#fdf9f2" opacity="0.35"/>
+
+  <!-- Rolling hills -->
+  <path d="M 0 580 Q 150 520 300 560 Q 450 520 600 570 L 600 800 L 0 800 Z" fill="#3d7534" opacity="0.5"/>
+  <path d="M 0 610 Q 200 560 350 590 Q 500 560 600 600 L 600 800 L 0 800 Z" fill="url(#ground)" opacity="0.7"/>
+
+  <!-- Silhouette figures on hill -->
+  <!-- Person 1 -->
+  <g transform="translate(180, 555)" opacity="0.6">
+    <circle cx="0" cy="-18" r="4" fill="#1a2f54"/>
+    <line x1="0" y1="-14" x2="0" y2="0" stroke="#1a2f54" stroke-width="2.5"/>
+    <line x1="0" y1="-8" x2="-6" y2="-2" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="-8" x2="6" y2="-2" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-4" y2="10" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="0" x2="4" y2="10" stroke="#1a2f54" stroke-width="2"/>
+  </g>
+  <!-- Person 2 -->
+  <g transform="translate(210, 548)" opacity="0.5">
+    <circle cx="0" cy="-18" r="4" fill="#1a2f54"/>
+    <line x1="0" y1="-14" x2="0" y2="0" stroke="#1a2f54" stroke-width="2.5"/>
+    <line x1="0" y1="-8" x2="-7" y2="-4" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="-8" x2="5" y2="0" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-3" y2="10" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="0" x2="5" y2="10" stroke="#1a2f54" stroke-width="2"/>
+  </g>
+  <!-- Person 3 (arms raised) -->
+  <g transform="translate(400, 560)" opacity="0.55">
+    <circle cx="0" cy="-20" r="4.5" fill="#1a2f54"/>
+    <line x1="0" y1="-15" x2="0" y2="0" stroke="#1a2f54" stroke-width="2.5"/>
+    <line x1="0" y1="-10" x2="-8" y2="-18" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="-10" x2="8" y2="-18" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-4" y2="10" stroke="#1a2f54" stroke-width="2"/>
+    <line x1="0" y1="0" x2="4" y2="10" stroke="#1a2f54" stroke-width="2"/>
+  </g>
+
+  <!-- Border frame -->
+  <rect x="30" y="30" width="540" height="740" fill="none" stroke="#fdf9f2" stroke-width="0.5" opacity="0.25" rx="2"/>
+
+  <!-- Festival label -->
+  <text x="300" y="100" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="13" fill="#fdf9f2" letter-spacing="0.35em" opacity="0.6" font-weight="300">FESTIVAL DE THÉÂTRE EN PLEIN AIR</text>
+
+  <!-- Decorative line -->
+  <line x1="220" y1="120" x2="380" y2="120" stroke="#e2943f" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Main title -->
+  <text x="300" y="200" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="62" fill="#fdf9f2" font-weight="400" letter-spacing="0.04em">LES</text>
+  <text x="300" y="270" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="62" fill="#fdf9f2" font-weight="400" letter-spacing="0.04em">LONGUES</text>
+  <text x="300" y="340" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="62" fill="#fdf9f2" font-weight="400" letter-spacing="0.04em">JOURNÉES</text>
+
+  <!-- Decorative line -->
+  <line x1="200" y1="370" x2="400" y2="370" stroke="#e2943f" stroke-width="1" opacity="0.6"/>
+
+  <!-- Year -->
+  <text x="300" y="440" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="80" fill="#e2943f" font-weight="700" letter-spacing="0.06em">2026</text>
+
+  <!-- Date -->
+  <text x="300" y="485" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="16" fill="#fdf9f2" letter-spacing="0.25em" opacity="0.8" font-weight="400">3 — 4 — 5 JUILLET</text>
+
+  <!-- Location -->
+  <text x="300" y="700" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="12" fill="#fdf9f2" letter-spacing="0.3em" opacity="0.5" font-weight="300">VILLE-SUR-JARNIOUX</text>
+  <text x="300" y="722" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="11" fill="#fdf9f2" letter-spacing="0.3em" opacity="0.4" font-weight="300">BEAUJOLAIS — PRIX LIBRE</text>
+
+  <!-- Grain texture overlay -->
+  <rect width="600" height="800" fill="transparent" filter="url(#grain)"/>
+</svg>
