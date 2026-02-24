@@ -1,0 +1,10 @@
+node_modules/
+temporary screenshots/
+brand_assets/
+.idea/
+.claude/
+.DS_Store
+serve.mjs
+screenshot.mjs
+package.json
+package-lock.json

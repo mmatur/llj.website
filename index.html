@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Longues Journées — Festival de Théâtre en Plein Air</title>
+  <meta name="description" content="Festival de théâtre, concert et arts vivants en plein air à Ville-sur-Jarnioux, Beaujolais. Prix libre.">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terre: { 50: '#fdf6ee', 100: '#f9e8d0', 200: '#f2ce9e', 300: '#e9ae6a', 400: '#e2943f', 500: '#d4762c', 600: '#b85a1f', 700: '#99421c', 800: '#7c361d', 900: '#67301c' },
+            nuit: { 50: '#eef4fb', 100: '#d9e6f5', 200: '#b8d1ed', 300: '#87b3e0', 400: '#5490d0', 500: '#2b5ea7', 600: '#244f94', 700: '#1f4078', 800: '#1d3764', 900: '#1a2f54' },
+            creme: { 50: '#fefdfb', 100: '#fdf9f2', 200: '#faf3e5', 300: '#f5e9d4', 400: '#eddcc0', 500: '#e3ccaa' },
+            vert: { 500: '#4a8c3f', 600: '#3d7534', 700: '#2f5a28' },
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #fefdfb;
+      color: #1a2f54;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #fdf9f2; }
+    ::-webkit-scrollbar-thumb { background: #d4762c; border-radius: 3px; }
+
+    /* Typography */
+    .heading-display {
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .body-text {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      line-height: 1.7;
+    }
+
+    /* Layered shadows */
+    .shadow-warm {
+      box-shadow:
+        0 1px 2px rgba(212, 118, 44, 0.04),
+        0 4px 8px rgba(212, 118, 44, 0.06),
+        0 12px 24px rgba(212, 118, 44, 0.08);
+    }
+
+    .shadow-deep {
+      box-shadow:
+        0 2px 4px rgba(26, 47, 84, 0.04),
+        0 8px 16px rgba(26, 47, 84, 0.06),
+        0 24px 48px rgba(26, 47, 84, 0.08);
+    }
+
+    .shadow-float {
+      box-shadow:
+        0 4px 8px rgba(212, 118, 44, 0.06),
+        0 16px 32px rgba(26, 47, 84, 0.1),
+        0 32px 64px rgba(26, 47, 84, 0.06);
+    }
+
+    /* Image treatment */
+    .img-theater {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-theater img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .img-theater:hover img {
+      transform: scale(1.04);
+    }
+
+    .img-theater::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 47, 84, 0.35) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Animated underline */
+    .link-underline {
+      position: relative;
+      text-decoration: none;
+    }
+
+    .link-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: #d4762c;
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .link-underline:hover::after,
+    .link-underline:focus-visible::after {
+      width: 100%;
+    }
+
+    /* Nav animation */
+    .nav-link {
+      transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-link:hover, .nav-link:focus-visible {
+      color: #d4762c;
+    }
+
+    .nav-link:active {
+      color: #b85a1f;
+    }
+
+    /* Button styles */
+    .btn-primary {
+      background: #d4762c;
+      color: #fefdfb;
+      padding: 14px 36px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 118, 44, 0.3);
+    }
+
+    .btn-primary:focus-visible {
+      outline: 2px solid #d4762c;
+      outline-offset: 3px;
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1a2f54;
+      padding: 13px 35px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1.5px solid #1a2f54;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background: #1a2f54;
+      color: #fefdfb;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline:focus-visible {
+      outline: 2px solid #2b5ea7;
+      outline-offset: 3px;
+    }
+
+    .btn-outline:active {
+      transform: translateY(0);
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Hero parallax */
+    .hero-bg {
+      transition: transform 0.1s linear;
+    }
+
+    /* Horizontal rule */
+    .rule-warm {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #e9ae6a, transparent);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Gallery grid */
+    .gallery-item {
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .gallery-item:hover {
+      transform: scale(0.98);
+    }
+
+    /* Section divider */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d4762c;
+    }
+
+    /* Partner logos */
+    .partner-logo {
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: filter 0.4s ease, opacity 0.4s ease;
+    }
+
+    .partner-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* Edition cards */
+    .edition-card {
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .edition-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Marquee */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+    }
+
+    /* Header default (over hero) — light text */
+    #header .nav-text { color: #fdf9f2; }
+    #header .nav-icon { color: #f5e9d4; }
+    #header .hamburger-line { background: #fdf9f2; }
+
+    /* Header scroll state — dark text on glass bg */
+    .header-scrolled {
+      background: rgba(254, 253, 251, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(212, 118, 44, 0.1);
+    }
+
+    .header-scrolled .nav-text { color: #1a2f54; }
+    .header-scrolled .nav-icon { color: #1f4078; }
+    .header-scrolled .hamburger-line { background: #1a2f54; }
+
+    /* Lightbox */
+    .lightbox {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- HEADER                                       -->
+  <!-- ============================================ -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between h-20 md:h-24">
+      <!-- Logo -->
+      <a href="#" class="relative z-50 flex items-center gap-3 group" aria-label="Accueil">
+        <img src="images/logo.jpg" alt="Les Longues Journées" class="h-12 md:h-14 rounded-sm transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-10" aria-label="Navigation principale">
+        <a href="#festival" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Le Festival</a>
+        <a href="#programmation" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Programmation</a>
+        <a href="#galerie" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Galerie</a>
+        <a href="#editions" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Éditions</a>
+        <a href="#contact" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Contact</a>
+      </nav>
+
+      <!-- Social + CTA desktop -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="https://www.instagram.com/leslonguesjournees/" target="_blank" rel="noopener" class="nav-link nav-icon transition-colors duration-500" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#contact" class="btn-primary text-xs">Billetterie</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menuToggle" class="md:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5" aria-label="Menu" aria-expanded="false">
+        <span class="hamburger-line w-6 h-[1.5px] transition-transform duration-300 origin-center"></span>
+        <span class="hamburger-line w-6 h-[1.5px] transition-opacity duration-300"></span>
+        <span class="hamburger-line w-6 h-[1.5px] transition-transform duration-300 origin-center"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-creme-50 z-40 flex flex-col items-center justify-center gap-8">
+      <a href="#festival" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Le Festival</a>
+      <a href="#programmation" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Programmation</a>
+      <a href="#galerie" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Galerie</a>
+      <a href="#editions" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Éditions</a>
+      <a href="#contact" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Contact</a>
+      <div class="mt-4">
+        <a href="#contact" class="btn-primary" onclick="closeMenu()">Billetterie</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- HERO                                         -->
+  <!-- ============================================ -->
+  <section class="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+    <!-- Background image -->
+    <div class="hero-bg absolute inset-0">
+      <img
+        src="images/hero-actors.jpeg"
+        alt="Comédiens en représentation dans les collines du Beaujolais"
+        class="w-full h-full object-cover"
+      >
+      <!-- Gradient overlays -->
+      <div class="absolute inset-0 bg-gradient-to-t from-nuit-900/70 via-nuit-900/20 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-nuit-900/30 to-transparent"></div>
+      <!-- Color treatment -->
+      <div class="absolute inset-0 bg-terre-600/10 mix-blend-multiply"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-24">
+      <div class="max-w-3xl">
+        <p class="section-label text-creme-100 mb-4 reveal">Festival de Théâtre en Plein Air</p>
+        <h1 class="heading-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-creme-50 mb-6 reveal reveal-delay-1">
+          Les Longues<br>Journées
+        </h1>
+        <div class="flex flex-wrap items-center gap-3 mb-8 reveal reveal-delay-2">
+          <span class="inline-block bg-terre-500/90 text-creme-50 px-4 py-2 text-sm font-medium body-text tracking-wide">4 — 5 — 6 Juillet 2025</span>
+          <span class="inline-block border border-creme-200/40 text-creme-100 px-4 py-2 text-sm body-text tracking-wide">Ville-sur-Jarnioux, Beaujolais</span>
+        </div>
+        <p class="body-text text-creme-200 text-lg md:text-xl max-w-xl mb-10 reveal reveal-delay-3" style="line-height: 1.7;">
+          Trois jours de théâtre, musique et rencontres au cœur des pierres dorées du Beaujolais. Prix libre.
+        </p>
+        <div class="flex flex-wrap gap-4 reveal reveal-delay-4">
+          <a href="#programmation" class="btn-primary">Découvrir le programme</a>
+          <a href="#festival" class="btn-outline border-creme-200/50 text-creme-100 hover:bg-creme-50 hover:text-nuit-900">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-creme-300/60">
+      <span class="text-[0.6rem] tracking-[0.25em] uppercase body-text">Défiler</span>
+      <div class="w-[1px] h-8 bg-creme-300/40 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-terre-400" style="animation: scrollPulse 2s ease-in-out infinite;"></div>
+      </div>
+    </div>
+    <style>
+      @keyframes scrollPulse {
+        0% { transform: translateY(-100%); }
+        50% { transform: translateY(0); }
+        100% { transform: translateY(100%); }
+      }
+    </style>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- MARQUEE BANNER                               -->
+  <!-- ============================================ -->
+  <div class="bg-nuit-900 py-4 overflow-hidden">
+    <div class="marquee-track flex items-center gap-12 whitespace-nowrap" style="width: max-content;">
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Théâtre</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Concert</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Restauration</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">DJ</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Prix Libre</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Plein Air</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Beaujolais</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Théâtre</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Concert</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Restauration</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">DJ</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Prix Libre</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Plein Air</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+      <span class="body-text text-sm text-creme-300 tracking-[0.15em] uppercase font-light">Beaujolais</span>
+      <span class="text-terre-400 text-xs">&#9670;</span>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ABOUT / LE FESTIVAL                          -->
+  <!-- ============================================ -->
+  <section id="festival" class="py-24 md:py-36">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <!-- Section label -->
+      <div class="reveal">
+        <span class="section-label">Le Festival</span>
+        <div class="rule-warm mt-4 mb-12 max-w-[120px]"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+        <!-- Left: Text -->
+        <div class="reveal reveal-delay-1">
+          <h2 class="heading-display text-4xl md:text-5xl text-nuit-900 mb-8">
+            Le théâtre<br>
+            <span class="text-terre-500">prend le large</span>
+          </h2>
+          <div class="body-text text-nuit-700 space-y-6 text-base md:text-lg">
+            <p>
+              <strong>Les Longues Journées</strong> est un festival de théâtre en plein air niché au cœur des pierres dorées du Beaujolais, à Ville-sur-Jarnioux. Chaque été, nous transformons un terrain vallonné en scène vivante où se croisent théâtre, musique, restauration et moments de partage.
+            </p>
+            <p>
+              Né de la volonté de rendre les arts vivants accessibles à tous, le festival fonctionne en <strong>prix libre</strong> — chacun donne selon ses moyens. Dans cet écrin de nature, entre collines et ciel ouvert, le spectacle prend une dimension unique, porté par la beauté du lieu et l'énergie du collectif.
+            </p>
+            <p>
+              En 2025, nous fêtons notre <strong>3ème édition</strong> avec une programmation qui mêle créations originales, concerts sous les étoiles et surprises gourmandes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Image composition -->
+        <div class="reveal reveal-delay-2 relative">
+          <div class="img-theater rounded-sm overflow-hidden shadow-deep">
+            <img
+              src="images/scene-nocturne.jpg"
+              alt="Scène nocturne — acteurs autour d'une radio"
+              loading="lazy"
+              class="w-full aspect-[4/5] object-cover"
+            >
+          </div>
+          <!-- Floating accent card -->
+          <div class="absolute -bottom-6 -left-6 md:-left-10 bg-terre-500 text-creme-50 p-6 md:p-8 shadow-float max-w-[240px]">
+            <p class="heading-display text-4xl md:text-5xl font-bold">3<sup class="text-lg">e</sup></p>
+            <p class="body-text text-sm mt-1 text-creme-200 tracking-wide">Édition — Juillet 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- KEY INFO STRIP                               -->
+  <!-- ============================================ -->
+  <section class="bg-nuit-900 py-16 md:py-20">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div class="reveal text-center md:text-left">
+          <p class="heading-display text-3xl md:text-4xl text-terre-400 font-bold">3</p>
+          <p class="body-text text-creme-300 text-sm mt-2 tracking-wide">Jours de festival</p>
+        </div>
+        <div class="reveal reveal-delay-1 text-center md:text-left">
+          <p class="heading-display text-3xl md:text-4xl text-terre-400 font-bold">10+</p>
+          <p class="body-text text-creme-300 text-sm mt-2 tracking-wide">Spectacles & concerts</p>
+        </div>
+        <div class="reveal reveal-delay-2 text-center md:text-left">
+          <p class="heading-display text-3xl md:text-4xl text-terre-400 font-bold">Prix libre</p>
+          <p class="body-text text-creme-300 text-sm mt-2 tracking-wide">Accessible à tous</p>
+        </div>
+        <div class="reveal reveal-delay-3 text-center md:text-left">
+          <p class="heading-display text-3xl md:text-4xl text-terre-400 font-bold">1000+</p>
+          <p class="body-text text-creme-300 text-sm mt-2 tracking-wide">Spectateurs en 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PROGRAMMATION                                -->
+  <!-- ============================================ -->
+  <section id="programmation" class="py-24 md:py-36 bg-creme-100">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="reveal">
+        <span class="section-label">Programmation 2025</span>
+        <div class="rule-warm mt-4 mb-6 max-w-[120px]"></div>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
+        <h2 class="heading-display text-4xl md:text-5xl text-nuit-900 reveal reveal-delay-1">
+          Trois jours,<br>
+          <span class="text-terre-500">mille émotions</span>
+        </h2>
+        <p class="body-text text-nuit-600 max-w-md text-base reveal reveal-delay-2">
+          Du vendredi soir au dimanche, le festival bat au rythme des représentations en plein air, des concerts et de la convivialité.
+        </p>
+      </div>
+
+      <!-- Day cards -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Day 1 -->
+        <div class="reveal edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden">
+          <div class="img-theater aspect-[16/10]">
+            <img src="images/public-coucher.jpg" alt="Public en plein air au coucher du soleil" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-[1.5px] bg-terre-500"></span>
+              <span class="section-label text-terre-600">Vendredi 4 Juillet</span>
+            </div>
+            <h3 class="heading-display text-2xl text-nuit-900 mb-3">Ouverture du Festival</h3>
+            <p class="body-text text-nuit-600 text-sm mb-6">
+              Soirée d'ouverture avec représentation théâtrale en plein air suivie d'un concert sous les étoiles. Restauration sur place et buvette.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Théâtre</span>
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Concert</span>
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Buvette</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="reveal reveal-delay-1 edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden">
+          <div class="img-theater aspect-[16/10]">
+            <img src="images/performance-foule.jpg" alt="Performance devant le public" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-[1.5px] bg-terre-500"></span>
+              <span class="section-label text-terre-600">Samedi 5 Juillet</span>
+            </div>
+            <h3 class="heading-display text-2xl text-nuit-900 mb-3">Grande Journée</h3>
+            <p class="body-text text-nuit-600 text-sm mb-6">
+              Journée complète de spectacles avec représentations l'après-midi et en soirée. Restauration, DJ set et animations pour toute la famille.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Théâtre</span>
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">DJ</span>
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Famille</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="reveal reveal-delay-2 edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden">
+          <div class="img-theater aspect-[16/10]">
+            <img src="images/piano-sunset.jpeg" alt="Piano en plein air au coucher de soleil" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-[1.5px] bg-terre-500"></span>
+              <span class="section-label text-terre-600">Dimanche 6 Juillet</span>
+            </div>
+            <h3 class="heading-display text-2xl text-nuit-900 mb-3">Clôture en Beauté</h3>
+            <p class="body-text text-nuit-600 text-sm mb-6">
+              Brunch champêtre suivi des dernières représentations de l'édition. Un moment de clôture festif et convivial au cœur de la nature.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Brunch</span>
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Théâtre</span>
+              <span class="text-xs body-text bg-nuit-50 text-nuit-700 px-3 py-1 rounded-sm">Concert</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16 reveal">
+        <a href="#contact" class="btn-primary">Réserver ma place</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FULL BLEED IMAGE                             -->
+  <!-- ============================================ -->
+  <section class="relative h-[50vh] md:h-[60vh] overflow-hidden">
+    <img
+      src="images/public-collines.jpg"
+      alt="Le public du festival au coucher du soleil dans les collines"
+      loading="lazy"
+      class="w-full h-full object-cover"
+    >
+    <div class="absolute inset-0 bg-gradient-to-t from-nuit-900/50 via-transparent to-nuit-900/20"></div>
+    <div class="absolute inset-0 bg-terre-700/10 mix-blend-multiply"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <blockquote class="text-center px-6 max-w-2xl reveal">
+        <p class="heading-display text-3xl md:text-4xl lg:text-5xl text-creme-50 italic">
+          « Le théâtre est le lieu où une communauté se raconte des histoires »
+        </p>
+        <footer class="body-text text-creme-300 text-sm mt-6 tracking-wider uppercase">— Antoine Vitez</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- GALERIE                                      -->
+  <!-- ============================================ -->
+  <section id="galerie" class="py-24 md:py-36">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="reveal">
+        <span class="section-label">Galerie</span>
+        <div class="rule-warm mt-4 mb-6 max-w-[120px]"></div>
+      </div>
+      <h2 class="heading-display text-4xl md:text-5xl text-nuit-900 mb-16 reveal reveal-delay-1">
+        Instantanés<br>
+        <span class="text-terre-500">du festival</span>
+      </h2>
+
+      <!-- Masonry-style gallery -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+        <div class="gallery-item img-theater rounded-sm col-span-2 row-span-2 aspect-square reveal cursor-pointer" onclick="openLightbox(this)">
+          <img src="images/acteur-champs.jpeg" alt="Acteur en scène dans les champs" loading="lazy" class="w-full h-full object-cover">
+        </div>
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-1 cursor-pointer" onclick="openLightbox(this)">
+          <img src="images/scene-crime.jpg" alt="Scène de crime théâtrale" loading="lazy" class="w-full h-full object-cover">
+        </div>
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-2 cursor-pointer" onclick="openLightbox(this)">
+          <img src="images/enfants-foin.jpg" alt="Performance en plein air" loading="lazy" class="w-full h-full object-cover">
+        </div>
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-1 cursor-pointer" onclick="openLightbox(this)">
+          <img src="images/soldats-marche.jpg" alt="Moment de spectacle" loading="lazy" class="w-full h-full object-cover">
+        </div>
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-2 cursor-pointer" onclick="openLightbox(this)">
+          <img src="images/dsc-spectacle.jpg" alt="Enfants au festival" loading="lazy" class="w-full h-full object-cover">
+        </div>
+        <div class="gallery-item img-theater rounded-sm col-span-2 aspect-[2/1] reveal reveal-delay-3 cursor-pointer" onclick="openLightbox(this)">
+          <img src="images/piano-copie.jpeg" alt="Piano au coucher du soleil" loading="lazy" class="w-full h-full object-cover">
+        </div>
+        <div class="gallery-item img-theater rounded-sm col-span-2 aspect-[2/1] reveal reveal-delay-2 cursor-pointer" onclick="openLightbox(this)">
+          <img src="images/vue-festival.jpg" alt="Vue du festival" loading="lazy" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox fixed inset-0 bg-nuit-900/95 z-[100] flex items-center justify-center p-4 md:p-12" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 text-creme-200 hover:text-terre-400 transition-colors duration-300 z-10" aria-label="Fermer" onclick="closeLightbox()">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-sm" onclick="event.stopPropagation()">
+  </div>
+
+  <!-- ============================================ -->
+  <!-- ÉDITIONS PASSÉES                             -->
+  <!-- ============================================ -->
+  <section id="editions" class="py-24 md:py-36 bg-creme-100">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="reveal">
+        <span class="section-label">Éditions Passées</span>
+        <div class="rule-warm mt-4 mb-6 max-w-[120px]"></div>
+      </div>
+      <h2 class="heading-display text-4xl md:text-5xl text-nuit-900 mb-16 reveal reveal-delay-1">
+        Les saisons<br>
+        <span class="text-terre-500">précédentes</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+        <!-- 2024 -->
+        <div class="reveal edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden">
+          <div class="img-theater aspect-[16/9]">
+            <img src="images/affiche-2024.jpg" alt="Affiche Festival 2024" class="w-full h-full object-cover">
+          </div>
+          <div class="p-8 md:p-10">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-[1.5px] bg-terre-500"></span>
+              <span class="section-label">2ème Édition</span>
+            </div>
+            <h3 class="heading-display text-3xl text-nuit-900 mb-3">Été 2024</h3>
+            <p class="body-text text-nuit-600 mb-6">
+              Notre deuxième édition a rassemblé plus d'un millier de spectateurs pour un week-end de créations originales et de convivialité dans les collines du Beaujolais.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="reveal reveal-delay-1 edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden">
+          <div class="img-theater aspect-[16/9]">
+            <img src="images/affiche-2023.jpg" alt="Affiche Festival 2023" class="w-full h-full object-cover">
+          </div>
+          <div class="p-8 md:p-10">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-[1.5px] bg-terre-500"></span>
+              <span class="section-label">1ère Édition</span>
+            </div>
+            <h3 class="heading-display text-3xl text-nuit-900 mb-3">Été 2023</h3>
+            <p class="body-text text-nuit-600 mb-6">
+              La toute première édition des Longues Journées : une aventure fondatrice qui a donné naissance au festival, portée par la passion d'une troupe et l'accueil chaleureux de Ville-sur-Jarnioux.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- LE LIEU                                      -->
+  <!-- ============================================ -->
+  <section class="py-24 md:py-36">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <!-- Image -->
+        <div class="reveal">
+          <div class="img-theater rounded-sm overflow-hidden shadow-deep">
+            <img
+              src="images/public-tentes.jpg"
+              alt="Le public rassemblé dans les collines"
+              class="w-full aspect-[4/3] object-cover"
+            >
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="reveal reveal-delay-1">
+          <span class="section-label">Le Lieu</span>
+          <div class="rule-warm mt-4 mb-8 max-w-[120px]"></div>
+          <h2 class="heading-display text-4xl md:text-5xl text-nuit-900 mb-8">
+            Au cœur des<br>
+            <span class="text-terre-500">pierres dorées</span>
+          </h2>
+          <div class="body-text text-nuit-700 space-y-6 text-base md:text-lg">
+            <p>
+              Niché dans le pays des pierres dorées, à quelques kilomètres de Lyon, le festival prend vie sur un terrain vallonné offrant une vue spectaculaire sur les collines du Beaujolais.
+            </p>
+            <p>
+              C'est dans ce cadre naturel exceptionnel que le théâtre se déploie — entre ciel et terre, les spectacles prennent une dimension unique, magnifiés par la lumière du couchant et l'énergie de la nature environnante.
+            </p>
+          </div>
+          <!-- Address -->
+          <div class="mt-8 p-6 bg-creme-100 rounded-sm border-l-2 border-terre-500">
+            <p class="body-text text-nuit-900 font-medium text-sm">265 Chemin de tous vents / Cosset</p>
+            <p class="body-text text-nuit-600 text-sm mt-1">69640 Ville-sur-Jarnioux, France</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PARTENAIRES                                  -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-24 border-t border-creme-300">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="text-center mb-12 reveal">
+        <span class="section-label">Nos Partenaires</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 reveal reveal-delay-1">
+        <img src="images/partenaires/jtn-logo.jpeg" alt="Le Jeune Théâtre National" class="partner-logo h-12 md:h-16 object-contain">
+        <img src="images/partenaires/mairie-vsj.jpg" alt="Mairie de Ville-sur-Jarnioux" class="partner-logo h-14 md:h-20 object-contain">
+        <img src="images/partenaires/sou-des-ecoles.png" alt="Sou des Écoles Jarnioux" class="partner-logo h-14 md:h-20 object-contain">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CONTACT / FOOTER                             -->
+  <!-- ============================================ -->
+  <footer id="contact" class="bg-nuit-900 pt-20 md:pt-28 pb-8">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="grid md:grid-cols-3 gap-12 md:gap-20 mb-16 md:mb-24">
+        <!-- Col 1: Brand -->
+        <div class="reveal">
+          <img src="images/logo.jpg" alt="Les Longues Journées" class="h-20 rounded-sm mb-6">
+          <p class="body-text text-creme-300 text-sm leading-relaxed max-w-sm">
+            Festival de théâtre en plein air au cœur du Beaujolais. Théâtre, concert, restauration — prix libre.
+          </p>
+          <!-- Social -->
+          <div class="flex items-center gap-4 mt-6">
+            <a href="https://www.instagram.com/leslonguesjournees/" target="_blank" rel="noopener" class="text-creme-400 hover:text-terre-400 transition-colors duration-300" aria-label="Instagram">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="text-creme-400 hover:text-terre-400 transition-colors duration-300" aria-label="Facebook">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="reveal reveal-delay-1">
+          <h3 class="body-text text-creme-50 font-semibold text-sm tracking-wider uppercase mb-6">Navigation</h3>
+          <nav class="flex flex-col gap-3">
+            <a href="#festival" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Le Festival</a>
+            <a href="#programmation" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Programmation</a>
+            <a href="#galerie" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Galerie</a>
+            <a href="#editions" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Éditions</a>
+          </nav>
+        </div>
+
+        <!-- Col 3: Contact -->
+        <div class="reveal reveal-delay-2">
+          <h3 class="body-text text-creme-50 font-semibold text-sm tracking-wider uppercase mb-6">Contact</h3>
+          <div class="body-text text-creme-400 text-sm space-y-3">
+            <p>265 Chemin de tous vents / Cosset</p>
+            <p>69640 Ville-sur-Jarnioux</p>
+            <p class="mt-4">
+              <a href="mailto:leslonguesjournees@gmail.com" class="hover:text-terre-400 transition-colors duration-300">leslonguesjournees@gmail.com</a>
+            </p>
+          </div>
+          <div class="mt-8">
+            <a href="https://www.instagram.com/leslonguesjournees/" target="_blank" rel="noopener" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">
+              @leslonguesjournees
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-nuit-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="body-text text-creme-500 text-xs tracking-wide">&copy; 2025 Les Longues Journées. Tous droits réservés.</p>
+        <p class="body-text text-creme-500/50 text-xs">Festival de théâtre en plein air — Ville-sur-Jarnioux, Beaujolais</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- SCRIPTS                                      -->
+  <!-- ============================================ -->
+  <script>
+    // ---- Scroll reveal ----
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // ---- Header scroll ----
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const scroll = window.scrollY;
+      if (scroll > 80) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+      lastScroll = scroll;
+    }, { passive: true });
+
+    // ---- Mobile menu ----
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuToggle.setAttribute('aria-expanded', menuOpen);
+
+      const lines = menuToggle.querySelectorAll('.hamburger-line');
+      if (menuOpen) {
+        lines[0].style.transform = 'rotate(45deg) translateY(4.5px)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'rotate(-45deg) translateY(-4.5px)';
+        document.body.style.overflow = 'hidden';
+      } else {
+        lines[0].style.transform = '';
+        lines[1].style.opacity = '';
+        lines[2].style.transform = '';
+        document.body.style.overflow = '';
+      }
+    });
+
+    function closeMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      const lines = menuToggle.querySelectorAll('.hamburger-line');
+      lines[0].style.transform = '';
+      lines[1].style.opacity = '';
+      lines[2].style.transform = '';
+      document.body.style.overflow = '';
+    }
+
+    // ---- Lightbox ----
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ---- Smooth parallax on hero ----
+    const heroBg = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      const scroll = window.scrollY;
+      if (scroll < window.innerHeight) {
+        heroBg.style.transform = `translateY(${scroll * 0.25}px)`;
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
