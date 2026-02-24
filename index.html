@@ -910,16 +910,24 @@
 
       <!-- Map -->
       <div class="mt-16 md:mt-24 reveal">
-        <div class="rounded-sm overflow-hidden shadow-deep" style="aspect-ratio: 21/9;">
+        <div class="relative rounded-sm overflow-hidden shadow-deep" style="aspect-ratio: 21/9;">
+          <!-- Warm tint overlay to match site palette -->
+          <div class="absolute inset-0 bg-terre-500/[0.07] mix-blend-multiply pointer-events-none z-10"></div>
+          <div class="absolute inset-0 pointer-events-none z-10 rounded-sm" style="box-shadow: inset 0 0 40px rgba(26,47,84,0.12);"></div>
           <iframe
             src="https://www.openstreetmap.org/export/embed.html?bbox=4.6050%2C45.9230%2C4.6350%2C45.9400&layer=mapnik&marker=45.9315%2C4.6200"
-            width="100%" height="100%" style="border:0; display:block;" loading="lazy"
+            width="100%" height="100%" style="border:0; display:block; filter: saturate(0.8) contrast(1.05) brightness(1.02);" loading="lazy"
             title="Carte — Ville-sur-Jarnioux, Beaujolais"
           ></iframe>
         </div>
-        <p class="body-text text-nuit-500 text-xs mt-3 text-right">
-          <a href="https://www.openstreetmap.org/?mlat=45.9315&mlon=4.6200#map=14/45.9315/4.6200" target="_blank" rel="noopener" class="hover:text-terre-500 transition-colors duration-300">Voir sur OpenStreetMap &rarr;</a>
-        </p>
+        <!-- Caption bar -->
+        <div class="flex items-center justify-between mt-0 px-5 py-3 bg-nuit-900 rounded-b-sm">
+          <div class="flex items-center gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2943f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="body-text text-creme-300 text-xs tracking-wide">265 Chemin de tous vents, 69640 Ville-sur-Jarnioux</span>
+          </div>
+          <a href="https://www.openstreetmap.org/?mlat=45.9315&mlon=4.6200#map=14/45.9315/4.6200" target="_blank" rel="noopener" class="body-text text-creme-400 text-xs hover:text-terre-400 transition-colors duration-300 hidden md:inline">Ouvrir la carte &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
