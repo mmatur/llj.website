@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://llj-website.vercel.app/sitemap.xml
