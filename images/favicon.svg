@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Les Longues Journées</title>
+  <!-- Cream background with soft rounded corners -->
+  <rect width="64" height="64" rx="10" ry="10" fill="#fdf9f2"/>
+
+  <!-- Van-Gogh style swirl around a sun — signature of the 2026 poster -->
+  <!-- Outer swirl (turquoise) -->
+  <path d="M 32 14
+           C 44 14, 52 22, 52 32
+           C 52 42, 44 50, 32 50
+           C 22 50, 14 42, 14 32
+           C 14 24, 20 18, 28 18
+           C 35 18, 40 23, 40 30
+           C 40 36, 36 40, 31 40
+           C 27 40, 24 37, 24 33"
+        fill="none" stroke="#2ca6c4" stroke-width="3.2" stroke-linecap="round"/>
+
+  <!-- Inner swirl accent (orange, slightly offset for chromatic feel) -->
+  <path d="M 33 15
+           C 45 15, 53 23, 53 33
+           C 53 43, 45 51, 33 51"
+        fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+
+  <!-- Sun core -->
+  <circle cx="32" cy="32" r="6" fill="#f4c430"/>
+  <circle cx="32" cy="32" r="6" fill="none" stroke="#1a2f54" stroke-width="1.2"/>
+
+  <!-- Horizon line (green, subtle) -->
+  <path d="M 8 48 Q 20 45, 32 48 T 56 48"
+        fill="none" stroke="#7cb342" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
