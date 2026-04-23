@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Les Longues Journées — Festival de Théâtre en Plein Air</title>
-  <meta name="description" content="Festival de théâtre, concert et arts vivants en plein air à Ville-sur-Jarnioux, Beaujolais. Prix libre.">
+  <meta name="description" content="Festival de théâtre, musique et rencontres en plein air à Ville-sur-Jarnioux, Beaujolais. 3, 4 et 5 juillet 2026. Prix libre.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://llj-website.vercel.app/">
   <link rel="icon" type="image/svg+xml" href="images/logo-2026.svg">
@@ -13,14 +13,14 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Les Longues Journées — Festival de Théâtre en Plein Air">
-  <meta property="og:description" content="Festival de théâtre, concert et arts vivants en plein air à Ville-sur-Jarnioux, Beaujolais. 3-5 juillet 2026. Prix libre.">
+  <meta property="og:description" content="Festival de théâtre, musique et rencontres en plein air à Ville-sur-Jarnioux, Beaujolais. 3, 4 et 5 juillet 2026. Prix libre.">
   <meta property="og:image" content="https://llj-website.vercel.app/images/og-image.jpg">
   <meta property="og:url" content="https://llj-website.vercel.app/">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Les Longues Journées — Festival de Théâtre en Plein Air">
-  <meta name="twitter:description" content="Festival de théâtre, concert et arts vivants en plein air à Ville-sur-Jarnioux, Beaujolais. 3-5 juillet 2026. Prix libre.">
+  <meta name="twitter:description" content="Festival de théâtre, musique et rencontres en plein air à Ville-sur-Jarnioux, Beaujolais. 3, 4 et 5 juillet 2026. Prix libre.">
   <meta name="twitter:image" content="https://llj-website.vercel.app/images/og-image.jpg">
 
   <!-- JSON-LD Structured Data -->
@@ -29,7 +29,7 @@
     "@context": "https://schema.org",
     "@type": "Festival",
     "name": "Les Longues Journées",
-    "description": "Festival de théâtre, concert et arts vivants en plein air à Ville-sur-Jarnioux, Beaujolais. Prix libre.",
+    "description": "Festival de théâtre, musique et rencontres en plein air à Ville-sur-Jarnioux, Beaujolais. Prix libre.",
     "startDate": "2026-07-03",
     "endDate": "2026-07-05",
     "eventStatus": "https://schema.org/EventScheduled",
@@ -111,6 +111,45 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
+
+    /* Skip link for keyboard users */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #d4762c;
+      color: #fefdfb;
+      padding: 12px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 2px;
+      z-index: 100;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus-visible {
+      top: 16px;
+      outline: 2px solid #fefdfb;
+      outline-offset: 2px;
+    }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
 
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
@@ -413,7 +452,9 @@
   <!-- ============================================ -->
   <!-- HEADER                                       -->
   <!-- ============================================ -->
-  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-colors duration-500">
     <div class="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between h-20 md:h-24">
       <!-- Logo -->
       <a href="#" class="relative z-50 flex items-center gap-3 group" aria-label="Accueil">
@@ -426,6 +467,7 @@
         <a href="#programmation" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Programmation</a>
         <a href="#galerie" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Galerie</a>
         <a href="#editions" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Éditions</a>
+        <a href="#lieu" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Le Lieu</a>
         <a href="#infos" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Infos</a>
         <a href="#contact" class="nav-link link-underline body-text text-sm font-medium nav-text transition-colors duration-500">Contact</a>
       </nav>
@@ -452,6 +494,7 @@
       <a href="#programmation" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Programmation</a>
       <a href="#galerie" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Galerie</a>
       <a href="#editions" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Éditions</a>
+      <a href="#lieu" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Le Lieu</a>
       <a href="#infos" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Infos</a>
       <a href="#contact" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Contact</a>
       <div class="mt-4">
@@ -460,7 +503,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
 
   <!-- ============================================ -->
   <!-- HERO                                         -->
@@ -493,8 +536,15 @@
           >
         </h1>
         <div class="flex flex-wrap items-center gap-3 mb-8 reveal reveal-delay-2">
-          <span class="inline-block bg-terre-500/90 text-creme-50 px-4 py-2 text-sm font-medium body-text tracking-wide">3 — 4 — 5 Juillet 2026</span>
-          <span class="inline-block border border-creme-200/40 text-creme-100 px-4 py-2 text-sm body-text tracking-wide">Ville-sur-Jarnioux, Beaujolais</span>
+          <span class="inline-flex items-center gap-2 bg-terre-500/90 text-creme-50 px-4 py-2 text-sm font-medium body-text tracking-wide">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            3 — 4 — 5 juillet 2026
+          </span>
+          <a href="#lieu" class="inline-flex items-center gap-2 border border-creme-200/50 text-creme-100 px-4 py-2 text-sm body-text tracking-wide hover:bg-creme-50 hover:text-nuit-900 hover:border-creme-50 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terre-400 focus-visible:ring-offset-2 focus-visible:ring-offset-nuit-900">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ville-sur-Jarnioux, Beaujolais
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="opacity-70"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
         <p class="body-text text-creme-200 text-lg md:text-xl max-w-xl mb-10 reveal reveal-delay-3" style="line-height: 1.7;">
           Trois jours de théâtre, musique et rencontres au cœur des pierres dorées du Beaujolais. Prix libre.
@@ -562,7 +612,7 @@
   <!-- ============================================ -->
   <!-- ABOUT / LE FESTIVAL                          -->
   <!-- ============================================ -->
-  <section id="festival" class="py-24 md:py-36">
+  <section id="festival" class="py-24 md:py-36 scroll-mt-20">
     <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <!-- Section label -->
       <div class="reveal">
@@ -745,7 +795,7 @@
           <p class="body-text text-creme-300 text-sm mt-2 tracking-wide">Accessible à tous</p>
         </div>
         <div class="reveal reveal-delay-3 text-center md:text-left">
-          <p class="heading-display text-3xl md:text-4xl text-terre-400 font-bold">700+</p>
+          <p class="heading-display text-3xl md:text-4xl text-terre-400 font-bold">~700</p>
           <p class="body-text text-creme-300 text-sm mt-2 tracking-wide">Spectateurs en 2025</p>
         </div>
       </div>
@@ -755,7 +805,7 @@
   <!-- ============================================ -->
   <!-- PROGRAMMATION                                -->
   <!-- ============================================ -->
-  <section id="programmation" class="py-24 md:py-36 bg-creme-100">
+  <section id="programmation" class="py-24 md:py-36 bg-creme-100 scroll-mt-20">
     <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <div class="reveal">
         <span class="section-label">Programmation 2026</span>
@@ -787,7 +837,7 @@
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">18h</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Tant Bien Que Mal</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">Tant Bien Que Mal</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Johanne Débat — Cie Modes d'Emploi</p>
               </li>
@@ -800,7 +850,7 @@
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">20h30</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Comment allez-vous ?</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">Comment allez-vous ?</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Édouard Pénaud &amp; Jérémie Galiana</p>
                 <span class="inline-block mt-2 ml-[3.5rem] text-[10px] body-text bg-nuit-900 text-creme-100 px-2 py-1 rounded-sm tracking-wider uppercase">Soutenu par l'Europe</span>
@@ -829,14 +879,14 @@
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">17h30</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Tant Bien Que Mal</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">Tant Bien Que Mal</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Johanne Débat — Cie Modes d'Emploi</p>
               </li>
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">20h30</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Comment allez-vous ?</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">Comment allez-vous ?</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Édouard Pénaud &amp; Jérémie Galiana</p>
                 <span class="inline-block mt-2 ml-[3.5rem] text-[10px] body-text bg-nuit-900 text-creme-100 px-2 py-1 rounded-sm tracking-wider uppercase">Soutenu par l'Europe</span>
@@ -859,7 +909,7 @@
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">11h30</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Panique à Bord</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">Panique à Bord</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Spectacle des amateurs de Jarnioux, travail dirigé par Catherine Prisset</p>
               </li>
@@ -873,14 +923,14 @@
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">17h30</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Tant Bien Que Mal</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">Tant Bien Que Mal</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Johanne Débat — Cie Modes d'Emploi</p>
               </li>
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">20h30</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Comment allez-vous ?</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">Comment allez-vous ?</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Édouard Pénaud &amp; Jérémie Galiana</p>
                 <span class="inline-block mt-2 ml-[3.5rem] text-[10px] body-text bg-nuit-900 text-creme-100 px-2 py-1 rounded-sm tracking-wider uppercase">Soutenu par l'Europe</span>
@@ -928,7 +978,7 @@
   <!-- ============================================ -->
   <!-- GALERIE                                      -->
   <!-- ============================================ -->
-  <section id="galerie" class="py-24 md:py-36">
+  <section id="galerie" class="py-24 md:py-36 scroll-mt-20">
     <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <div class="reveal">
         <span class="section-label">Galerie</span>
@@ -941,25 +991,25 @@
 
       <!-- Masonry-style gallery -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-        <div class="gallery-item img-theater rounded-sm col-span-2 row-span-2 aspect-square reveal cursor-pointer" onclick="openLightbox(this)">
+        <div class="gallery-item img-theater rounded-sm col-span-2 row-span-2 aspect-square reveal cursor-pointer" role="button" tabindex="0" aria-label="Ouvrir la photo en grand" onclick="openLightbox(this)" onkeydown="handleActivate(event, this)">
           <img src="images/acteur-champs.jpeg" alt="Acteur en scène dans les champs" loading="lazy" decoding="async" class="w-full h-full object-cover">
         </div>
-        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-1 cursor-pointer" onclick="openLightbox(this)">
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-1 cursor-pointer" role="button" tabindex="0" aria-label="Ouvrir la photo en grand" onclick="openLightbox(this)" onkeydown="handleActivate(event, this)">
           <img src="images/scene-crime.jpg" alt="Scène de crime théâtrale" loading="lazy" decoding="async" class="w-full h-full object-cover">
         </div>
-        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-2 cursor-pointer" onclick="openLightbox(this)">
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-2 cursor-pointer" role="button" tabindex="0" aria-label="Ouvrir la photo en grand" onclick="openLightbox(this)" onkeydown="handleActivate(event, this)">
           <img src="images/enfants-foin.jpg" alt="Performance en plein air" loading="lazy" decoding="async" class="w-full h-full object-cover">
         </div>
-        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-1 cursor-pointer" onclick="openLightbox(this)">
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-1 cursor-pointer" role="button" tabindex="0" aria-label="Ouvrir la photo en grand" onclick="openLightbox(this)" onkeydown="handleActivate(event, this)">
           <img src="images/soldats-marche.jpg" alt="Moment de spectacle" loading="lazy" decoding="async" class="w-full h-full object-cover">
         </div>
-        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-2 cursor-pointer" onclick="openLightbox(this)">
+        <div class="gallery-item img-theater rounded-sm aspect-[4/5] reveal reveal-delay-2 cursor-pointer" role="button" tabindex="0" aria-label="Ouvrir la photo en grand" onclick="openLightbox(this)" onkeydown="handleActivate(event, this)">
           <img src="images/dsc-spectacle.jpg" alt="Enfants au festival" loading="lazy" decoding="async" class="w-full h-full object-cover">
         </div>
-        <div class="gallery-item img-theater rounded-sm col-span-2 aspect-[2/1] reveal reveal-delay-3 cursor-pointer" onclick="openLightbox(this)">
+        <div class="gallery-item img-theater rounded-sm col-span-2 aspect-[2/1] reveal reveal-delay-3 cursor-pointer" role="button" tabindex="0" aria-label="Ouvrir la photo en grand" onclick="openLightbox(this)" onkeydown="handleActivate(event, this)">
           <img src="images/piano-copie.jpeg" alt="Piano au coucher du soleil" loading="lazy" decoding="async" class="w-full h-full object-cover">
         </div>
-        <div class="gallery-item img-theater rounded-sm col-span-2 aspect-[2/1] reveal reveal-delay-2 cursor-pointer" onclick="openLightbox(this)">
+        <div class="gallery-item img-theater rounded-sm col-span-2 aspect-[2/1] reveal reveal-delay-2 cursor-pointer" role="button" tabindex="0" aria-label="Ouvrir la photo en grand" onclick="openLightbox(this)" onkeydown="handleActivate(event, this)">
           <img src="images/vue-festival.jpg" alt="Vue du festival" loading="lazy" decoding="async" class="w-full h-full object-cover">
         </div>
       </div>
@@ -967,7 +1017,7 @@
   </section>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox fixed inset-0 bg-nuit-900/95 z-[100] flex items-center justify-center p-4 md:p-12" onclick="closeLightbox()">
+  <div id="lightbox" class="lightbox fixed inset-0 bg-nuit-900/95 z-[100] flex items-center justify-center p-4 md:p-12" role="dialog" aria-modal="true" aria-label="Visualisation photo" aria-hidden="true" onclick="closeLightbox()">
     <button class="absolute top-6 right-6 text-creme-200 hover:text-terre-400 transition-colors duration-300 z-10" aria-label="Fermer" onclick="closeLightbox()">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -984,7 +1034,7 @@
   </div>
 
   <!-- Edition Gallery Modal -->
-  <div id="editionGallery" class="fixed inset-0 bg-creme-50 z-[90] overflow-y-auto" style="display:none;">
+  <div id="editionGallery" class="fixed inset-0 bg-creme-50 z-[90] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="editionGalleryTitle" aria-hidden="true" style="display:none;">
     <div class="sticky top-0 z-10 bg-creme-50/95 backdrop-blur-sm border-b border-creme-300">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
         <div>
@@ -1004,7 +1054,7 @@
   <!-- ============================================ -->
   <!-- ÉDITIONS PASSÉES                             -->
   <!-- ============================================ -->
-  <section id="editions" class="py-24 md:py-36 bg-creme-100">
+  <section id="editions" class="py-24 md:py-36 bg-creme-100 scroll-mt-20">
     <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <div class="reveal">
         <span class="section-label">Éditions Passées</span>
@@ -1017,7 +1067,7 @@
 
       <div class="grid md:grid-cols-3 gap-8 md:gap-10">
         <!-- 2025 -->
-        <div class="reveal edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden cursor-pointer" onclick="openEditionGallery(2025)">
+        <div class="reveal edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden cursor-pointer" role="button" tabindex="0" aria-label="Voir la galerie de l'édition 2025" onclick="openEditionGallery(2025)" onkeydown="handleActivate(event, this)">
           <div class="img-theater aspect-[3/4] relative">
             <img src="images/editions/2025/affiche.png" alt="Affiche Festival 2025" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-nuit-900/60 via-transparent to-transparent"></div>
@@ -1053,7 +1103,7 @@
         </div>
 
         <!-- 2024 -->
-        <div class="reveal reveal-delay-1 edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden cursor-pointer" onclick="openEditionGallery(2024)">
+        <div class="reveal reveal-delay-1 edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden cursor-pointer" role="button" tabindex="0" aria-label="Voir la galerie de l'édition 2024" onclick="openEditionGallery(2024)" onkeydown="handleActivate(event, this)">
           <div class="img-theater aspect-[3/4] relative">
             <img src="images/editions/2024/affiche.jpg" alt="Affiche Festival 2024" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-nuit-900/60 via-transparent to-transparent"></div>
@@ -1090,7 +1140,7 @@
         </div>
 
         <!-- 2023 -->
-        <div class="reveal reveal-delay-2 edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden cursor-pointer" onclick="openEditionGallery(2023)">
+        <div class="reveal reveal-delay-2 edition-card bg-creme-50 shadow-warm rounded-sm overflow-hidden cursor-pointer" role="button" tabindex="0" aria-label="Voir la galerie de l'édition 2023" onclick="openEditionGallery(2023)" onkeydown="handleActivate(event, this)">
           <div class="img-theater aspect-[3/4] relative">
             <img src="images/editions/2023/affiche.png" alt="Affiche Festival 2023" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-nuit-900/60 via-transparent to-transparent"></div>
@@ -1125,7 +1175,7 @@
   <!-- ============================================ -->
   <!-- LE LIEU                                      -->
   <!-- ============================================ -->
-  <section class="py-24 md:py-36">
+  <section id="lieu" class="py-24 md:py-36 scroll-mt-20">
     <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
         <!-- Image -->
@@ -1174,6 +1224,15 @@
             width="100%" height="100%" style="border:0; display:block; filter: saturate(0.8) contrast(1.05) brightness(1.02);" loading="lazy"
             title="Carte — Ville-sur-Jarnioux, Beaujolais"
           ></iframe>
+          <!-- Scroll overlay: blocks iframe wheel zoom unless Ctrl/Cmd is held -->
+          <div id="mapOverlay" class="absolute inset-0 z-20" aria-hidden="true"></div>
+          <!-- Scroll hint shown when user tries to scroll without Ctrl/Cmd -->
+          <div id="mapHint" class="absolute inset-0 z-30 flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+            <div class="bg-nuit-900/85 text-creme-50 px-5 py-3 rounded-sm body-text text-sm tracking-wide backdrop-blur-sm">
+              <span class="hidden md:inline">Maintenez <kbd class="px-1.5 py-0.5 bg-creme-50/15 rounded text-xs">⌘</kbd> / <kbd class="px-1.5 py-0.5 bg-creme-50/15 rounded text-xs">Ctrl</kbd> + molette pour zoomer</span>
+              <span class="md:hidden">Utilisez deux doigts pour zoomer</span>
+            </div>
+          </div>
         </div>
         <!-- Caption bar -->
         <div class="flex items-center justify-between mt-0 px-5 py-3 bg-nuit-900 rounded-b-sm">
@@ -1201,7 +1260,7 @@
   <!-- ============================================ -->
   <!-- INFOS PRATIQUES                               -->
   <!-- ============================================ -->
-  <section id="infos" class="py-24 md:py-36 bg-creme-100">
+  <section id="infos" class="py-24 md:py-36 bg-creme-100 scroll-mt-20">
     <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <div class="reveal">
         <span class="section-label">Infos Pratiques</span>
@@ -1325,7 +1384,7 @@
         <div class="reveal">
           <img src="images/logo-2026.svg" alt="Les Longues Journées" class="h-20 rounded-sm mb-6">
           <p class="body-text text-creme-300 text-sm leading-relaxed max-w-sm">
-            Festival de théâtre en plein air au cœur du Beaujolais. Théâtre, concert, restauration — prix libre.
+            Festival de théâtre, musique et rencontres en plein air au cœur du Beaujolais — prix libre.
           </p>
           <!-- Social -->
           <div class="flex items-center gap-4 mt-6">
@@ -1343,6 +1402,7 @@
             <a href="#programmation" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Programmation</a>
             <a href="#galerie" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Galerie</a>
             <a href="#editions" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Éditions</a>
+            <a href="#lieu" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Le Lieu</a>
             <a href="#infos" class="body-text text-creme-400 text-sm hover:text-terre-400 transition-colors duration-300">Infos Pratiques</a>
           </nav>
         </div>
@@ -1441,14 +1501,24 @@
       document.body.style.overflow = '';
     }
 
+    // ---- Keyboard activation helper for role="button" divs ----
+    function handleActivate(event, el) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        el.click();
+      }
+    }
+
     // ---- Lightbox with navigation ----
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCounter = document.getElementById('lightboxCounter');
     let lightboxItems = [];
     let lightboxIndex = 0;
+    let lastFocusBeforeModal = null;
 
     function openLightbox(el) {
+      lastFocusBeforeModal = document.activeElement;
       // Build the list of sibling gallery items from the same parent grid
       const parent = el.closest('.grid, #editionGalleryGrid');
       if (parent) {
@@ -1460,7 +1530,11 @@
       }
       showLightboxImage();
       lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      // Focus the close button
+      const closeBtn = lightbox.querySelector('button[aria-label="Fermer"]');
+      if (closeBtn) closeBtn.focus();
     }
 
     function showLightboxImage() {
@@ -1482,8 +1556,39 @@
 
     function closeLightbox() {
       lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (lastFocusBeforeModal) {
+        lastFocusBeforeModal.focus();
+        lastFocusBeforeModal = null;
+      }
     }
+
+    // Focus trap for modals (lightbox + edition gallery)
+    function trapFocus(e) {
+      if (e.key !== 'Tab') return;
+      let modal = null;
+      if (lightbox.classList.contains('active')) {
+        modal = lightbox;
+      } else if (document.getElementById('editionGallery').style.display !== 'none') {
+        modal = document.getElementById('editionGallery');
+      }
+      if (!modal) return;
+      const focusable = modal.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    document.addEventListener('keydown', trapFocus);
 
     document.addEventListener('keydown', (e) => {
       if (lightbox.classList.contains('active')) {
@@ -1505,6 +1610,7 @@
     function openEditionGallery(year) {
       const data = editionData[year];
       if (!data) return;
+      lastFocusBeforeModal = document.activeElement;
       document.getElementById('editionGalleryTitle').textContent = data.title;
       document.getElementById('editionGallerySubtitle').textContent = data.subtitle;
       const grid = document.getElementById('editionGalleryGrid');
@@ -1513,18 +1619,60 @@
         const num = String(i).padStart(2, '0');
         const div = document.createElement('div');
         div.className = 'gallery-item img-theater rounded-sm aspect-[4/3] cursor-pointer overflow-hidden';
+        div.setAttribute('role', 'button');
+        div.setAttribute('tabindex', '0');
+        div.setAttribute('aria-label', 'Ouvrir la photo ' + i + ' de l\'édition ' + year);
         div.onclick = function() { openLightbox(this); };
+        div.onkeydown = function(e) { handleActivate(e, this); };
         div.innerHTML = '<img src="images/editions/' + year + '/' + num + '.jpg" alt="Festival ' + year + ' — Photo ' + i + '" loading="lazy" decoding="async" class="w-full h-full object-cover">';
         grid.appendChild(div);
       }
-      document.getElementById('editionGallery').style.display = '';
+      const modal = document.getElementById('editionGallery');
+      modal.style.display = '';
+      modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      // Focus the close button
+      const closeBtn = modal.querySelector('button[aria-label="Fermer"]');
+      if (closeBtn) closeBtn.focus();
     }
 
     function closeEditionGallery() {
-      document.getElementById('editionGallery').style.display = 'none';
+      const modal = document.getElementById('editionGallery');
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (lastFocusBeforeModal) {
+        lastFocusBeforeModal.focus();
+        lastFocusBeforeModal = null;
+      }
     }
+
+    // ---- Map scroll zoom: require Ctrl/Cmd ----
+    (function() {
+      const overlay = document.getElementById('mapOverlay');
+      const hint = document.getElementById('mapHint');
+      if (!overlay || !hint) return;
+      let hintTimer;
+
+      // Show hint when user tries to scroll over the map without Ctrl/Cmd
+      overlay.addEventListener('wheel', (e) => {
+        if (e.ctrlKey || e.metaKey) return;
+        hint.style.opacity = '1';
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(() => { hint.style.opacity = '0'; }, 1200);
+      }, { passive: true });
+
+      // When Ctrl/Cmd is held, disable overlay so iframe receives wheel events
+      const enableZoom = () => { overlay.style.pointerEvents = 'none'; };
+      const disableZoom = () => { overlay.style.pointerEvents = ''; };
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey || e.metaKey) enableZoom();
+      });
+      document.addEventListener('keyup', (e) => {
+        if (!e.ctrlKey && !e.metaKey) disableZoom();
+      });
+      window.addEventListener('blur', disableZoom);
+    })();
 
     // ---- Smooth parallax on hero ----
     const heroBg = document.querySelector('.hero-bg');
