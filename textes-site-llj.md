@@ -69,7 +69,7 @@ La compagnie crée et diffuse des spectacles de théâtre en salle et en plein a
 ### Ateliers & Transmission
 La transmission est au cœur de la démarche de la Compagnie du Tous Vents. Portée par Édouard Pénaud, la compagnie a l'ambition de développer des ateliers de pratique théâtrale auprès de publics variés — scolaires, amateurs, structures sociales et culturelles — et de les ancrer durablement sur le territoire tout au long de l'année, avec la conviction que le théâtre est un outil d'émancipation et de lien social.
 
-Un premier projet est actuellement en cours de construction : un atelier destiné aux aidants, développé en partenariat avec l'Agglomération et soutenu financièrement par l'Europe dans le cadre de l'appel à projets EFFEA. Ce projet réunit le Festival Les Longues Journées, La Festa del Nido à Villa Estense (Italie) et le Festival Black and White en Finlande.
+Un premier projet est actuellement en cours de construction : un atelier destiné aux aidants, développé en partenariat avec l'Agglomération et soutenu financièrement par l'Union Européenne dans le cadre de l'appel à projets EFFEA. Ce projet réunit le Festival Les Longues Journées, La Festa del Nido à Villa Estense (Italie) et le Festival Black and White en Finlande.
 
 ### Résidences & Collaborations
 Le festival Les Longues Journées ambitionne de faire du Beaujolais un lieu de recherche et de création ouvert à tous les horizons. Des résidences ont déjà lieu pour les spectacles programmés au festival, et l'objectif est d'aller plus loin : construire progressivement les conditions nécessaires pour accueillir des artistes locaux, nationaux et internationaux, offrir un espace de travail, d'expérimentation et de rencontre, du territoire jusqu'à l'international.
@@ -97,18 +97,18 @@ Du vendredi soir au dimanche, le festival bat au rythme des représentations en 
 ### Vendredi 3 Juillet
 - **18h — Tant Bien Que Mal** — Mise en scène Johanne Débat, Cie Modes d'Emploi
 - **20h — Présentation du Festival**
-- **20h30 — Comment allez-vous ?** — Mise en scène Édouard Pénaud & Jérémie Galiana *(projet soutenu par l'Europe)*
+- **20h30 — Comment allez-vous ?** — Mise en scène Édouard Pénaud & Jérémie Galiana *(projet soutenu par l'Union Européenne)*
 
 ### Samedi 4 Juillet
 - **15h — Rencontre avec les artistes**
 - **17h30 — Tant Bien Que Mal** — Mise en scène Johanne Débat, Cie Modes d'Emploi
-- **20h30 — Comment allez-vous ?** — Mise en scène Édouard Pénaud & Jérémie Galiana *(projet soutenu par l'Europe)*
+- **20h30 — Comment allez-vous ?** — Mise en scène Édouard Pénaud & Jérémie Galiana *(projet soutenu par l'Union Européenne)*
 
 ### Dimanche 5 Juillet
-- **11h30 — Panique à Bord** — Spectacle des amateurs de Jarnioux, travail dirigé par Catherine Prisset
+- **11h30 — Panique à Bord** — Spectacle des amateurs de Jarnioux « Les Baladins », travail dirigé par Catherine Prisset
 - **15h — Concert Classique** — Travail dirigé par Laurent Morel (programme en cours)
 - **17h30 — Tant Bien Que Mal** — Mise en scène Johanne Débat, Cie Modes d'Emploi
-- **20h30 — Comment allez-vous ?** — Mise en scène Édouard Pénaud & Jérémie Galiana *(projet soutenu par l'Europe)*
+- **20h30 — Comment allez-vous ?** — Mise en scène Édouard Pénaud & Jérémie Galiana *(projet soutenu par l'Union Européenne)*
 - **22h30 — Soirée de Clôture**
 
 ---
@@ -141,7 +141,7 @@ Au programme : un seul en scène d'un artiste de Jarnioux, mêlant musique et co
 - *Concerto en plein air* — Elsa Guerci, Jérôme Morel
 - *Voyage sonore* — Maxime Brun
 - *L'Écho du vignoble* — Juliette Malfray (Jeune public)
-- *Déjà Vu* — Alessandro Businaro (Projet soutenu par l'Europe)
+- *Déjà Vu* — Alessandro Businaro (Projet soutenu par l'Union Européenne)
 - *Terre Battue* — Louis Berthélémy
 
 ### Été 2023 — 1ère Édition
