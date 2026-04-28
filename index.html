@@ -782,12 +782,17 @@
         <!-- Right: 2026 Affiche -->
         <div class="reveal reveal-delay-2 relative">
           <div class="rounded-sm overflow-hidden shadow-deep">
-            <img
-              src="images/affiche-2026.webp"
-              alt="Affiche officielle de la 4ᵉ édition des Longues Journées — 3, 4 et 5 juillet 2026 à Ville-sur-Jarnioux"
-              loading="lazy" decoding="async"
-              class="w-full"
-            >
+            <picture>
+              <source media="(max-width: 768px)" type="image/webp" srcset="images/affiche-2026-mobile.webp">
+              <source type="image/webp" srcset="images/affiche-2026.webp">
+              <img
+                src="images/affiche-2026-hero.jpg"
+                alt="Affiche officielle de la 4ᵉ édition des Longues Journées — 3, 4 et 5 juillet 2026 à Ville-sur-Jarnioux"
+                width="1200" height="1697"
+                loading="lazy" decoding="async"
+                class="w-full h-auto"
+              >
+            </picture>
           </div>
           <!-- Floating accent card -->
           <div class="absolute -bottom-6 -left-6 md:-left-10 bg-terre-500 text-creme-50 p-6 md:p-8 shadow-float max-w-[240px]">
@@ -1507,6 +1512,7 @@
         <img src="images/partenaires/jtn-logo.webp" alt="Le Jeune Théâtre National" class="partner-logo h-20 md:h-28 object-contain">
         <img src="images/partenaires/mairie-vsj.webp" alt="Mairie de Ville-sur-Jarnioux" class="partner-logo h-24 md:h-32 object-contain">
         <img src="images/partenaires/sou-des-ecoles.png" alt="Sou des Écoles Jarnioux" class="partner-logo h-24 md:h-32 object-contain">
+        <img src="images/partenaires/beaujolais.webp" alt="Destination Beaujolais — Be authentic" class="partner-logo h-14 md:h-20 object-contain">
       </div>
     </div>
   </section>
