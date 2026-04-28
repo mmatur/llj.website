@@ -780,8 +780,12 @@
         </div>
 
         <!-- Right: 2026 Affiche -->
-        <div class="reveal reveal-delay-2 relative pb-16 md:pb-20">
-          <div class="rounded-sm overflow-hidden shadow-deep">
+        <div class="reveal reveal-delay-2 relative">
+          <!-- Layered terre-500 backdrop offset behind the poster (stacked-print effect) -->
+          <div aria-hidden="true" class="absolute inset-0 translate-x-6 translate-y-6 md:translate-x-10 md:translate-y-10 bg-terre-500 rounded-sm">
+            <span class="absolute right-2 md:right-3 bottom-1 md:bottom-2 text-creme-50 text-[10px] md:text-xs tracking-[0.35em] font-bold uppercase whitespace-nowrap">4<sup class="text-[7px] md:text-[8px]">e</sup> Éd · 2026</span>
+          </div>
+          <div class="relative rounded-sm overflow-hidden shadow-deep">
             <picture>
               <source media="(max-width: 768px)" type="image/webp" srcset="images/affiche-2026-mobile.webp">
               <source type="image/webp" srcset="images/affiche-2026.webp">
@@ -793,11 +797,6 @@
                 class="w-full h-auto"
               >
             </picture>
-          </div>
-          <!-- Floating accent card -->
-          <div class="absolute bottom-0 -left-4 md:-left-10 bg-terre-500 text-creme-50 p-6 md:p-8 shadow-float max-w-[240px]">
-            <p class="heading-display text-4xl md:text-5xl font-bold">4<sup class="text-lg">e</sup></p>
-            <p class="body-text text-sm mt-1 text-creme-200 tracking-wide">Édition — Juillet 2026</p>
           </div>
         </div>
       </div>
