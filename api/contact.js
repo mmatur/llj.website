@@ -1,6 +1,6 @@
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const TO = 'leslonguesjournees@gmail.com';
+const TO = 'ciedutousvents@gmail.com';
 const FROM = 'Site LLJ <contact@leslonguesjournees.fr>';
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 
