@@ -33,7 +33,7 @@ Les Longues Journées est un festival de théâtre en plein air niché au cœur 
 Né de la volonté de rendre les arts vivants accessibles à tous, le festival fonctionne en prix libre — chacun donne selon ses moyens. Dans cet écrin de nature, entre collines et ciel ouvert, le spectacle prend une dimension unique, porté par la beauté du lieu et l'énergie du collectif.
 
 **Paragraphe 3 :**
-En 2026, nous fêtons notre 4ème édition avec une programmation qui mêle créations originales, concerts sous les étoiles et surprises gourmandes.
+En 2026, nous fêtons notre 4ème édition avec une programmation qui mêle créations originales, un concert en plein air et des rencontres autour de notre incroyable buvette.
 
 ---
 
