@@ -634,21 +634,23 @@
       </button>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-creme-50 z-40 flex flex-col items-center justify-center gap-8">
-      <a href="#festival" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Le Festival</a>
-      <a href="#programmation" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Programmation</a>
-      <a href="#galerie" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Galerie</a>
-      <a href="#editions" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Éditions</a>
-      <a href="#lieu" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Le Lieu</a>
-      <a href="#infos" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Infos</a>
-      <a href="#contact" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Contact</a>
-      <a href="https://www.instagram.com/leslongues_journees/" target="_blank" rel="noopener" class="body-text text-sm text-nuit-500 tracking-wide mt-4 flex items-center gap-2 hover:text-terre-500 transition-colors duration-300" onclick="closeMenu()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-        @leslongues_journees
-      </a>
-    </div>
   </header>
+
+  <!-- Mobile Menu Overlay (kept outside <header> so `fixed inset-0` resolves to the
+       viewport — the header's backdrop-filter would otherwise become its containing block) -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-creme-50 z-40 flex flex-col items-center justify-center gap-8">
+    <a href="#festival" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Le Festival</a>
+    <a href="#programmation" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Programmation</a>
+    <a href="#galerie" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Galerie</a>
+    <a href="#editions" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Éditions</a>
+    <a href="#lieu" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Le Lieu</a>
+    <a href="#infos" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Infos</a>
+    <a href="#contact" class="heading-display text-3xl text-nuit-900 nav-link" onclick="closeMenu()">Contact</a>
+    <a href="https://www.instagram.com/leslongues_journees/" target="_blank" rel="noopener" class="body-text text-sm text-nuit-500 tracking-wide mt-4 flex items-center gap-2 hover:text-terre-500 transition-colors duration-300" onclick="closeMenu()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      @leslongues_journees
+    </a>
+  </div>
 
   <main id="main-content">
 
@@ -843,16 +845,10 @@
             <ul class="space-y-5 body-text text-sm">
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
-                  <span class="heading-display text-terre-600 text-lg font-medium">18h</span>
+                  <span class="heading-display text-terre-600 text-lg font-medium">17h30</span>
                   <h4 class="heading-display text-nuit-900 text-base italic">Tant Bien Que Mal</h4>
                 </div>
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Johanne Débat — Cie Modes d'Emploi</p>
-              </li>
-              <li>
-                <div class="flex items-baseline gap-3 mb-1">
-                  <span class="heading-display text-terre-600 text-lg font-medium">20h</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Présentation du Festival</h4>
-                </div>
               </li>
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
@@ -898,6 +894,13 @@
                 <p class="text-nuit-600 pl-[3.5rem]">Mise en scène Édouard Pénaud &amp; Jérémie Galiana</p>
                 <span class="inline-block mt-2 ml-[3.5rem] text-[10px] body-text bg-nuit-900 text-creme-100 px-2 py-1 rounded-sm tracking-wider uppercase">Soutenu par l'Union Européenne</span>
               </li>
+              <li>
+                <div class="flex items-baseline gap-3 mb-1">
+                  <span class="heading-display text-terre-600 text-lg font-medium">22h30</span>
+                  <h4 class="heading-display text-nuit-900 text-base">DJ Set</h4>
+                </div>
+                <p class="text-nuit-600 pl-[3.5rem]">Galatone &amp; Co. — jusqu'à 02h</p>
+              </li>
             </ul>
           </div>
         </div>
@@ -923,9 +926,9 @@
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="heading-display text-terre-600 text-lg font-medium">15h</span>
-                  <h4 class="heading-display text-nuit-900 text-base">Concert Classique</h4>
+                  <h4 class="heading-display text-nuit-900 text-base italic">En présence</h4>
                 </div>
-                <p class="text-nuit-600 pl-[3.5rem]">Travail dirigé par Laurent Morel — programme en cours</p>
+                <p class="text-nuit-600 pl-[3.5rem]">Quatuor Amici — concert de musique classique</p>
               </li>
               <li>
                 <div class="flex items-baseline gap-3 mb-1">
@@ -947,6 +950,7 @@
                   <span class="heading-display text-terre-600 text-lg font-medium">22h30</span>
                   <h4 class="heading-display text-nuit-900 text-base">Soirée de Clôture</h4>
                 </div>
+                <p class="text-nuit-600 pl-[3.5rem]">Jusqu'à 02h</p>
               </li>
             </ul>
           </div>
