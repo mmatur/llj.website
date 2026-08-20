@@ -584,13 +584,19 @@
   </style>
 </head>
 
-  <!-- Vercel Web Analytics -->
+  <!-- Vercel Insights -->
   <script>
     window.va = window.va || function () { 
       (window.vaq = window.vaq || []).push(arguments); 
     };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/script.js"></script>
 <body>
 
   <!-- ============================================ -->
